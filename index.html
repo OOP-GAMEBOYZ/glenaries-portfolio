@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glen Aries Dela Cruz - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #1a1a1a;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(138, 43, 226, 0.3);
+            border-bottom: 1px solid #7b2cbf;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.0rem;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 1px;
+            font-family: Impact, sans-serif;
+        }
+
+        .logo span {
+            color: #a855f7;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #a855f7;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #a855f7;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Home Section */
+        #home {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b4e 50%, #1a1a1a 100%);
+            color: white;
+            padding: 4rem 5%;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            width: 100%;
+            gap: 3rem;
+        }
+
+        .intro-text {
+            flex: 1;
+        }
+
+        .intro-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro-text h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #c4b5fd;
+        }
+
+        .intro-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+        }
+
+        .home-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #a855f7 0%, #7b2cbf 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #a855f7;
+            border: 2px solid #a855f7;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #a855f7 0%, #7b2cbf 100%);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(168, 85, 247, 0.2);
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #a855f7;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, #a855f7 0%, #7b2cbf 100%);
+            transform: translateY(-5px);
+        }
+
+        .profile-photo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #a855f7;
+            box-shadow: 0 15px 50px rgba(168, 85, 247, 0.4);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 5%;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #fff;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #a855f7, #7b2cbf);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        #about {
+            background-color: #121212;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            color: #d1d5db;
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: linear-gradient(145deg, #1a1a1a, #2d1b4e);
+            padding: 1.8rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(168, 85, 247, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .info-card h3 {
+            color: #a855f7;
+            margin-bottom: 0.7rem;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            color: #d1d5db;
+            font-size: 0.95rem;
+        }
+
+        /* Certifications */
+        #certifications {
+            background-color: #0a0a0a;
+        }
+
+        .certifications-scroll-wrapper {
+            overflow-x: auto;
+            padding: 1rem 0 2rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: #a855f7 #1a1a1a;
+        }
+
+        .certifications-scroll-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .certifications-scroll-wrapper::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+
+        .certifications-scroll-wrapper::-webkit-scrollbar-thumb {
+            background: linear-gradient(to right, #a855f7, #7b2cbf);
+            border-radius: 10px;
+        }
+
+        .certifications-grid {
+            display: flex;
+            gap: 2rem;
+            padding: 0.5rem;
+        }
+
+        .cert-card {
+            background: linear-gradient(145deg, #1a1a1a, #2d1b4e);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(168, 85, 247, 0.2);
+            transition: all 0.3s ease;
+            min-width: 300px;
+            max-width: 300px;
+            flex-shrink: 0;
+            cursor: pointer;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 40px rgba(168, 85, 247, 0.4);
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 200px;
+            background-color: #0a0a0a;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cert-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cert-click-hint {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: linear-gradient(135deg, #a855f7 0%, #7b2cbf 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cert-card:hover .cert-click-hint {
+            opacity: 1;
+        }
+
+        .cert-content {
+            padding: 1.3rem;
+        }
+
+        .cert-content h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .cert-content p {
+            color: #d1d5db;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .cert-issuer {
+            color: #a855f7;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .cert-date {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .scroll-hint {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 3px solid #a855f7;
+            border-radius: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #a855f7;
+        }
+
+        /* Skills */
+        #skills {
+            background-color: #121212;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: linear-gradient(145deg, #1a1a1a, #2d1b4e);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(168, 85, 247, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-card h3 {
+            color: #a855f7;
+            margin-bottom: 1.3rem;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 0.6rem 0;
+            color: #d1d5db;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .skill-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #a855f7;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Projects */
+        #projects {
+            background-color: #0a0a0a;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #1a1a1a, #2d1b4e);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(168, 85, 247, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b4e 50%, #1a1a1a 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-placeholder {
+            color: #a855f7;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.8rem;
+        }
+
+        .project-content h3 {
+            color: #fff;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .project-content p {
+            color: #d1d5db;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(168, 85, 247, 0.2);
+            color: #c4b5fd;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(168, 85, 247, 0.4);
+        }
+
+        /* Contact */
+        #contact {
+            background-color: #121212;
+        }
+
+        .contact-intro {
+            text-align: center;
+            font-size: 1.05rem;
+            color: #d1d5db;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: linear-gradient(145deg, #1a1a1a, #2d1b4e);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(168, 85, 247, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .contact-icon {
+            font-size: 2.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-card h3 {
+            color: #a855f7;
+            margin-bottom: 0.7rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-card p {
+            color: #d1d5db;
+            font-size: 0.95rem;
+        }
+
+        .contact-card a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #a855f7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            color: white;
+            text-align: center;
+            padding: 2rem 5%;
+            border-top: 2px solid #7b2cbf;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            color: #d1d5db;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #1a1a1a;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5);
+                padding: 2rem 0;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                padding: 1rem 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .home-content {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 2rem;
+            }
+
+            .intro-text h1 {
+                font-size: 2rem;
+            }
+
+            .intro-text h2 {
+                font-size: 1.2rem;
+            }
+
+            .profile-img {
+                width: 250px;
+                height: 250px;
+                margin-bottom: 2rem;
+            }
+
+            .home-buttons {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .cert-card {
+                min-width: 280px;
+                max-width: 280px;
+            }
+
+            .info-grid,
+            .skills-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .modal-content {
+                max-width: 95%;
+                max-height: 80%;
+            }
+
+            .modal-close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem 4%;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            section {
+                padding: 2.5rem 4%;
+            }
+
+            .intro-text h1 {
+                font-size: 1.7rem;
+            }
+
+            .intro-text h2 {
+                font-size: 1.1rem;
+            }
+
+            .intro-text p {
+                font-size: 0.95rem;
+            }
+
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .home-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .cert-card {
+                min-width: 260px;
+                max-width: 260px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .scroll-hint {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .cert-card {
+                min-width: 240px;
+                max-width: 240px;
+            }
+
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .social-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">GADC<span>.</span></div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="home-content">
+            <div class="intro-text">
+                <h1>Hi, I'm Glen Aries Dela Cruz</h1>
+                <h2>Computer Engineering Student</h2>
+                <p>Enthusiastic and hardworking Computer Engineering student with a foundation in programming, electronics, and computer hardware. Passionate about learning new technologies and contributing to innovative projects.</p>
+                <div class="home-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+                <div class="social-links">
+                    <a href="mailto:glenaries819@gmail.com" class="social-icon" title="Email">✉</a>
+                    <a href="tel:0948-893-2021" class="social-icon" title="Phone">✆</a>
+                    <a href="https://www.facebook.com/gleeeeeeennnaries/" class="social-icon" title="Facebook" target="_blank">ⓕ</a>
+                    <a href="https://www.instagram.com/g.arieszzz/" class="social-icon" title="Instagram" target="_blank">🅾</a>
+                </div>
+            </div>
+            <div class="profile-photo">
+                <img src="received_746243353687871.jpeg" alt="Glen Aries Dela Cruz" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-container">
+            <p class="about-text">I am a dedicated Computer Engineering student at Bulacan State University with a strong passion for technology and innovation. My interest in tech grew as I explored electronics, programming, and hands-on projects throughout my academic journey. I have practical experience in C, C++, Python, Arduino development, and various microcontroller-based systems. I am continuously expanding my skills and applying new technologies to develop real-world solutions.</p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Age</h3>
+                    <p>21 years old</p>
+                </div>
+                <div class="info-card">
+                    <h3>Education</h3>
+                    <p>BS Computer Engineering<br>Bulacan State University</p>
+                </div>
+                <div class="info-card">
+                    <h3>Location</h3>
+                    <p>Bustos, Bulacan, Philippines</p>
+                </div>
+                <div class="info-card">
+                    <h3>Personality</h3>
+                    <p>Detail-oriented and Curious</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2 class="section-title">Certifications & Training</h2>
+        <div class="certifications-container">
+            <div class="certifications-scroll-wrapper">
+                <div class="certifications-grid">
+                    <div class="cert-card" onclick="openModal('cert1')">
+                        <div class="cert-image">
+                            <img src="NC II.jpg" alt="CSS NC II Certificate" id="cert1">
+                            <div class="cert-click-hint">Click to view</div>
+                        </div>
+                        <div class="cert-content">
+                            <h3>Computer Systems Servicing (CSS) NCII</h3>
+                            <p>Technical certification in computer systems installation, configuration, and maintenance</p>
+                            <p class="cert-issuer">TESDA</p>
+                            <p class="cert-date">January 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card" onclick="openModal('cert2')">
+                        <div class="cert-image">
+                            <img src="SGV.jpg" alt="SGV Certificate" id="cert2">
+                            <div class="cert-click-hint">Click to view</div>
+                        </div>
+                        <div class="cert-content">
+                            <h3>Business Enablement Services Practicum</h3>
+                            <p>250-hour training in administrative assistance and business operations</p>
+                            <p class="cert-issuer">SGV & Co.</p>
+                            <p class="cert-date">July 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card" onclick="openModal('cert3')">
+                        <div class="cert-image">
+                            <img src="Overview of AI.png" alt="AI Overview Certificate" id="cert3">
+                            <div class="cert-click-hint">Click to view</div>
+                        </div>
+                        <div class="cert-content">
+                            <h3>Overview of AI</h3>
+                            <p>Foundational AI training covering concepts and applications</p>
+                            <p class="cert-issuer">Huawei ICT Academy</p>
+                            <p class="cert-date">October 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card" onclick="openModal('cert4')">
+                        <div class="cert-image">
+                            <img src="AI Basic.png" alt="AI Basics Certificate" id="cert4">
+                            <div class="cert-click-hint">Click to view</div>
+                        </div>
+                        <div class="cert-content">
+                            <h3>AI Basics: Overview</h3>
+                            <p>Introduction to intelligent systems and machine learning</p>
+                            <p class="cert-issuer">Huawei ICT Academy</p>
+                            <p class="cert-date">October 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card" onclick="openModal('cert5')">
+                        <div class="cert-image">
+                            <img src="HCIA-AI.png" alt="HCIA-AI Certificate" id="cert5">
+                            <div class="cert-click-hint">Click to view</div>
+                        </div>
+                        <div class="cert-content">
+                            <h3>HCIA-AI</h3>
+                            <p>Certified in AI concepts, machine learning, and Huawei AI technologies</p>
+                            <p class="cert-issuer">Huawei ICT Academy</p>
+                            <p class="cert-date">October 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card" onclick="openModal('cert6')">
+                        <div class="cert-image">
+                            <img src="CVO Certificate.jpg" alt="Computer Vision Certificate" id="cert6">
+                            <div class="cert-click-hint">Click to view</div>
+                        </div>
+                        <div class="cert-content">
+                            <h3>Computer Vision Onramp</h3>
+                            <p>Hands-on training in computer vision using MATLAB</p>
+                            <p class="cert-issuer">MathWorks</p>
+                            <p class="cert-date">November 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="scroll-hint">← Scroll to view all certifications • Click to enlarge →</p>
+        </div>
+    </section>
+
+    <div id="certModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-container">
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>C Programming</li>
+                        <li>C++ Programming</li>
+                        <li>Python Programming</li>
+                        <li>HTML & CSS</li>
+                        <li>Basic JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Hardware & Electronics</h3>
+                    <ul>
+                        <li>Arduino Projects</li>
+                        <li>Embedded Systems</li>
+                        <li>Digital Logic Design</li>
+                        <li>Circuit Design</li>
+                        <li>Computer Systems Servicing</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Problem Solving</li>
+                        <li>Analytical Thinking</li>
+                        <li>Team Collaboration</li>
+                        <li>Time Management</li>
+                        <li>Quick Learner</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-container">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="purrfect paws salon.png" alt="Purrfect Paws Salon">
+                    </div>
+                    <div class="project-content">
+                        <h3>Purrfect Paws Salon</h3>
+                        <p>Pet salon booking system with user-friendly interface for managing grooming appointments and services.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">NetBeans</span>
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="pompom.png" alt="Pompom App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Pompom</h3>
+                        <p>Pomodoro-based productivity app with structured work and break intervals to enhance focus.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Thunkable</span>
+                            <span class="tech-tag">Mobile App</span>
+                            <span class="tech-tag">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Screenshot 2025-11-19 194707.png" alt="Voice Classification">
+                    </div>
+                    <div class="project-content">
+                        <h3>Automatic Pitch Recognition</h3>
+                        <p>DSP-based system for pitch detection and voice classification using FFT and cepstral analysis.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">MATLAB</span>
+                            <span class="tech-tag">DSP</span>
+                            <span class="tech-tag">FFT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <p class="contact-intro">I'm always open to discussing new projects, opportunities, or collaborations. Feel free to reach out!</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:glenaries819@gmail.com">glenaries819@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:0948-893-2021">0948-893-2021</a></p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Address</h3>
+                    <p>296 Bulsan, Bustos<br>Bulacan, Philippines</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Glen Aries Dela Cruz. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Certificate modal
+        function openModal(certId) {
+            const modal = document.getElementById('certModal');
+            const modalImg = document.getElementById('modalImage');
+            const certImg = document.getElementById(certId);
+            
+            if (certImg && certImg.src) {
+                modal.classList.add('active');
+                modalImg.src = certImg.src;
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('certModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Prevent modal from closing when clicking image
+        document.getElementById('modalImage').addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    </script>
+</body>
+</html>
